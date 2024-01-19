@@ -1,0 +1,61 @@
+<Meta title="UI/input/date-picker/DatePicker" />
+
+# DatePicker - компонент для выбора даты
+
+### Компонент для выбора даты , возвращает объект типа Date
+
+`import DatePicker from "@estelink/ui/Input/DatePicker/DatePicker.vue";`
+
+### Принимаемые параметры
+
+#### **_первоначальное значение ,если значение не передано , то по умолчанию будет текущая дата_**
+
+` value: Date;`
+
+#### **_минимальная возможная дата_**
+
+` min?: Date;`
+
+#### **_максимальная возможная дата_**
+
+` max?:Date;`
+
+#### **_так же есть возможность отобразить кнопку для дополнительного селектора Range, и этот пропс определяет где будет находится эта кнопка_**
+
+range?:'left' | 'right' | 'bottom'  
+`
+
+### События
+
+#### **Стандартный v-model **
+
+`(e: "update:value", value: Date): void;`
+
+#### **_Событие нажатия на валидную дату в календаре, возвращает дату_**
+
+` onChange: (value: Date) => void`
+
+#### **\_Событие нажатия кнопку **range** \_**
+
+` "click-range": (value: boolean) => any`
+
+## **Готовый встроенный компонент выглядит так **
+
+```html
+<div
+  v-if="showCalendar"
+  class="sm-shadow workspace-bg absolute left-0 top-[110%] flex rounded-xl"
+>
+  <DatePicker
+    :value="
+          currentInput === 'start' ? startCalendarValue : endCalendarValue
+        "
+    :max="props.max"
+    :min="props.min"
+    range="right"
+    @onChange="(value) => calendarOnChengeHandler(value)"
+    @click-range="showRangeCalendarHandler(!showRangeCalendar)"
+    v-if="showCalendar"
+  ></DatePicker>
+</div>
+```

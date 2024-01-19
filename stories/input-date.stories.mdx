@@ -1,0 +1,50 @@
+<Meta title="UI/input/date-picker/InputDate" />
+
+# InputDate - инпут для выбора даты
+
+### Инпут для выбора даты , возвращает объект типа Date , работает на основе компонента **DatePicker**
+
+`import InputDate from "@estelink/ui/Input/DatePicker/InputDate.vue";`
+
+### Принимаемые параметры
+
+#### **_первоначальное значение ,если значение не передано , то по умолчанию будет текущая дата_**
+
+` value: Date;`
+
+#### **_минимальная возможная дата_**
+
+` min?: Date;`
+
+#### **_максимальная возможная дата_**
+
+` max?:Date;`
+
+#### **_readonly_**
+
+`readonly?: boolean;`
+
+#### **_display_**
+
+`display?: displays;`
+
+### События
+
+#### **Стандартный v-model **
+
+`(e: "update:value", value: Date): void;`
+
+#### **_Событие нажатия на валидную дату в календаре, возвращает дату_**
+
+` onChange: (value: Date) => void`
+
+## **Готовый встроенный компонент выглядит так **
+
+```html
+<InputDate
+  v-model:value="calendarValue"
+  :min="new Date(2020, 2, 1)"
+  :max="new Date(2023, 5, 0)"
+>
+</InputDate>
+```
